@@ -2,26 +2,10 @@ var canvas = document.querySelector('canvas');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 var c = canvas.getContext('2d');
-// c.fillStyle = "gray";
-// c.fillRect(100, 100, 100, 100);
 
-// console.log(canvas);
-// c.beginPath();
-// c.moveTo(50,300);
-// c.lineTo(500,200);
-// c.strokeStyle = "blue";
-// c.stroke();
+window.addEventListener('mousemove', function(event){
 
-
-// for (var i=0; i < 4; i++){
-//     var x = Math.random() * window.innerWidth;
-//     var y = ;
-//     c.beginPath();
-//     c.arc(x, y, 30, 0, Math.PI * 2, false); 
-//     c.stroke();
-// }
-
-
+});
 
 function Circle(x, y, velox, veloy,radius){
     this.x = x;
@@ -50,29 +34,23 @@ function Circle(x, y, velox, veloy,radius){
     }
 }
 
-var x = Math.random()* innerWidth;
-var y = Math.random() * innerHeight;
-var velox = (Math.random() - 0.5)*10;
-var veloy = (Math.random() - 0.5)*10;
-var radius = 30;
+
 
 circleArray=[]
-for(var i =0; i < 10; i++){
+for(var i =0; i <= 10; i++){
+    var x = Math.random()*(innerWidth - radius *2) + radius;
+    var y = Math.random()*(innerHeight - radius *2) + radius;
+    var velox = (Math.random() - 0.5)*15;
+    var veloy = (Math.random() - 0.5)*15;
     var radius = 30;
-    var x = Math.random()* (innerWidth - radius * 2) + radius;
-    var y = Math.random() * (innerHeight - radius * 2)+ radius;
-    var velox = (Math.random() - 0.5)*10;
-    var veloy = (Math.random() - 0.5)*10;
-    
     circleArray.push(new Circle(x,y,velox,veloy,radius));
 }
 function animate(){
     requestAnimationFrame(animate);
     c.clearRect(0,0, innerWidth, innerHeight);
-    for(var i =0; i < circleArray.length; i++){
+    for(var i =0; i <= circleArray.length; i++){
         circleArray[i].update();
     }
-    circle.update();
     c.beginPath();
     c.arc(x, y, radius, 0, Math.PI * 2, false); 
     c.strokeStyle = "blue";
